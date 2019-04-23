@@ -11,6 +11,8 @@ enable_b = 11
 motor_b1 = 13
 motor_b2 = 15
 
+pwm_duty_circle_run = 100
+
 
 def setup():
     GPIO.setmode(GPIO.BOARD)
@@ -35,14 +37,14 @@ pwm_b.start(0)
 def run_forward(enable, in1, in2, pwm):
     GPIO.output(in1, True)
     GPIO.output(in2, False)
-    pwm.ChangeDutyCycle(95)
+    pwm.ChangeDutyCycle(pwm_duty_circle_run)
     GPIO.output(enable, True)
 
 
 def run_backward(enable, in1, in2, pwm):
     GPIO.output(in1, False)
     GPIO.output(in2, True)
-    pwm.ChangeDutyCycle(95)
+    pwm.ChangeDutyCycle(pwm_duty_circle_run)
     GPIO.output(enable, True)
 
 
@@ -78,29 +80,6 @@ def stop_motors():
 
 
 def motors_cleanup():
+    pwm_a.stop()
+    pwm_b.stop()
     GPIO.cleanup()
-
-
-# run_forward_motors()
-# sleep(2)
-# stop_motors()
-# sleep(2)
-#
-# rotate_motors_left()
-# sleep(1)
-# stop_motors()
-# sleep(2)
-#
-# run_backward_motors()
-# sleep(2)
-# stop_motors()
-# sleep(2)
-#
-# rotate_motors_right()
-# sleep(1)
-# stop_motors()
-# sleep(2)
-#
-# pwm_a.stop()
-# pwm_b.stop()
-# GPIO.cleanup()
