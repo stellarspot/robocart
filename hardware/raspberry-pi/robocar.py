@@ -77,26 +77,30 @@ def stop_motors():
     stop(enable_b, motor_b1, motor_b2)
 
 
-run_forward_motors()
-sleep(2)
-stop_motors()
-sleep(2)
+def motors_cleanup():
+    GPIO.cleanup()
 
-rotate_motors_left()
-sleep(1)
-stop_motors()
-sleep(2)
 
-run_backward_motors()
-sleep(2)
-stop_motors()
-sleep(2)
-
-rotate_motors_right()
-sleep(1)
-stop_motors()
-sleep(2)
-
-pwm_a.stop()
-pwm_b.stop()
-GPIO.cleanup()
+# run_forward_motors()
+# sleep(2)
+# stop_motors()
+# sleep(2)
+#
+# rotate_motors_left()
+# sleep(1)
+# stop_motors()
+# sleep(2)
+#
+# run_backward_motors()
+# sleep(2)
+# stop_motors()
+# sleep(2)
+#
+# rotate_motors_right()
+# sleep(1)
+# stop_motors()
+# sleep(2)
+#
+# pwm_a.stop()
+# pwm_b.stop()
+# GPIO.cleanup()
